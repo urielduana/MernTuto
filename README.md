@@ -1,4 +1,4 @@
-#MernTuto
+# MernTuto
 
 This is a MERN stack tutorial where I learn how to use MongoDB, Express, React and Node.js to create a full stack web application. The application is a simple task manager where you can add, edit and delete notes.
 
