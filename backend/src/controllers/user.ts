@@ -4,13 +4,10 @@ import UserModel from "../models/user";
 import bcrypt from "bcrypt";
 
 export const getAuthUser: RequestHandler = async (req, res, next) => {
-  const authUserId = req.session.userId;
   try {
-    if (!authUserId) {
-      throw createHttpError(401, "Unauthorized");
-    }
-
-    const user = await UserModel.findById(authUserId).select("+email").exec();
+    const user = await UserModel.findById(req.session.userId)
+      .select("+email")
+      .exec();
     res.status(200).json(user);
   } catch (error) {
     next(error);
